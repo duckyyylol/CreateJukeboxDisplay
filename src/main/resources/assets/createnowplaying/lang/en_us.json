@@ -1,0 +1,12 @@
+{
+  "itemGroup.createnowplaying": "Example Mod Tab",
+  "block.createnowplaying.example_block": "Example Block",
+  "item.createnowplaying.example_item": "Example Item",
+
+  "text.createnowplaying.not_playing": "Nothing Playing",
+  "text.createnowplaying.no_title": "No Title",
+  "text.createnowplaying.no_artist": "No Artist",
+  "createnowplaying.display_source.jukebox_playing": "Current Song",
+  "createnowplaying.display_source.jukebox_title": "Song Title",
+  "createnowplaying.display_source.jukebox_artist": "Artist Name"
+}
