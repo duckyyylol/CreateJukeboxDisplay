@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "lol.duckyyy.createnowplaying.mixin",
+  "plugin": "lol.duckyyy.createnowplaying.mixin.ConfigurableMixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AlbumJukeboxClientSyncMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
