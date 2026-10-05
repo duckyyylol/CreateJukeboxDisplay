@@ -43,7 +43,7 @@ public class AlbumJukeboxProviderDisplaySource extends SingleLineDisplaySource {
             if (item == null || item.is(Items.AIR)) {
                 return Component.empty();
             } else {
-                if(!item.is(EtchedItems.ETCHED_MUSIC_DISC)) return Component.translatable("text.createjukeboxdisplay.providers.minecraft");
+                if(!item.is(EtchedItems.ETCHED_MUSIC_DISC)) return Component.translatable("text.createnowplaying.providers.minecraft");
 
                 List<Component> lines = item.getTooltipLines(Item.TooltipContext.EMPTY, null, TooltipFlag.NORMAL).stream().filter(l -> !l.getString().trim().isEmpty()).toList();
 //                    Createnowplaying.log(lines.size() + " lines: " + lines.toString());

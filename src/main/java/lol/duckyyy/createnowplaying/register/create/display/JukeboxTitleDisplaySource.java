@@ -44,11 +44,11 @@ public class JukeboxTitleDisplaySource extends SingleLineDisplaySource {
                 String content = jukebox.getSongPlayer().getSong().description().getString();
                 String[] split = content.split(" - ");
                 String title = split[1];
-                if(title == null) return Component.translatable("text.createjukeboxdisplay.no_title");
+                if(title == null) return Component.translatable("text.createnowplaying.no_title");
 
                 return Component.empty().append(title);
             } else {
-                return Component.translatable("text.createjukeboxdisplay.no_title");
+                return Component.translatable("text.createnowplaying.no_title");
             }
         } else if (Createnowplaying.etched) {
             // More Etched Compat
@@ -58,26 +58,26 @@ public class JukeboxTitleDisplaySource extends SingleLineDisplaySource {
                 int index = en.getPlayingIndex();
 //                Createnowplaying.log("Index: " + index);
 
-                if (index < 0) return Component.translatable("text.createjukeboxdisplay.no_title");
+                if (index < 0) return Component.translatable("text.createnowplaying.no_title");
 
                 ItemStack item = en.getItem(index);
                 if (item == null || item.is(Items.AIR)) {
 //                    Createnowplaying.log("Item not found at index " + index + " in album jukebox");
-                    return Component.translatable("text.createjukeboxdisplay.no_title");
+                    return Component.translatable("text.createnowplaying.no_title");
                 } else {
                     List<Component> lines = item.getTooltipLines(Item.TooltipContext.EMPTY, null, TooltipFlag.NORMAL).stream().filter(l -> !l.getString().trim().isEmpty()).toList();
-                    if (lines.isEmpty()) return Component.translatable("text.createjukeboxdisplay.no_title");
+                    if (lines.isEmpty()) return Component.translatable("text.createnowplaying.no_title");
 
                     String content = (!lines.getFirst().getSiblings().isEmpty() && lines.getFirst().getSiblings().getFirst().getContents().toString().contains("item.minecraft.")) ? lines.getFirst().getSiblings().getFirst().getContents().toString().split("='")[1].split("',")[0].trim() : lines.get(1).getString();
 
-                    if (content.trim().isEmpty()) return Component.translatable("text.createjukeboxdisplay.no_title");
+                    if (content.trim().isEmpty()) return Component.translatable("text.createnowplaying.no_title");
 
                     if (content.startsWith("item.minecraft")) content = content + ".desc";
 
                     String componentContent = content.startsWith("item.minecraft") ? Component.translatable(content).getString() : content;
 
                     String[] split = componentContent.split(" - ");
-                    if(split.length < 2) return Component.translatable("text.createjukeboxdisplay.no_title");
+                    if(split.length < 2) return Component.translatable("text.createnowplaying.no_title");
                     String title = split[1].trim();
 
                     return Component.empty().append(title);

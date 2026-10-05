@@ -26,8 +26,8 @@ import java.util.Map;
 
 @Mod(Createnowplaying.MODID)
 public class Createnowplaying {
-    public static final String MODID = "createjukeboxdisplay";
-    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MODID);
+    public static final String MODID = "createnowplaying";
+//    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MODID);
     public static final Logger LOGGER = LogUtils.getLogger();
     public static Map<BlockPos, Long> ElapsedMap;
     public static boolean etched = false;
@@ -52,10 +52,10 @@ public class Createnowplaying {
         return ResourceLocation.fromNamespaceAndPath(MODID, path);
     }
 
-    @SubscribeEvent
-    public static void registerNetworking(final RegisterPayloadHandlersEvent ev) {
-        final PayloadRegistrar registrar = ev.registrar(MODID).versioned("1.0.0");
-
-        registrar.playToServer(TrackSyncPayload.TYPE, TrackSyncPayload.CODEC, TrackSyncHandler::handle);
-    }
+//    @SubscribeEvent
+//    public static void registerNetworking(final RegisterPayloadHandlersEvent ev) {
+//        final PayloadRegistrar registrar = ev.registrar(MODID).versioned("1.0.0");
+//
+//        registrar.playToServer(TrackSyncPayload.TYPE, TrackSyncPayload.CODEC, TrackSyncHandler::handle);
+//    }
 }

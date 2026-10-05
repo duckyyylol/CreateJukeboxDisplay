@@ -42,7 +42,7 @@ public class JukeboxPlayingDisplaySource extends SingleLineDisplaySource {
             if(jukebox.getSongPlayer().isPlaying() && jukebox.getSongPlayer().getSong() != null) {
                 return Component.empty().append(jukebox.getSongPlayer().getSong().description());
             } else {
-                return Component.translatable("text.createjukeboxdisplay.not_playing");
+                return Component.translatable("text.createnowplaying.not_playing");
             }
         } else if (Createnowplaying.etched) {
             // More Etched Compat
@@ -52,20 +52,20 @@ public class JukeboxPlayingDisplaySource extends SingleLineDisplaySource {
                 int index = en.getPlayingIndex();
 //                Createnowplaying.log("Index: " + index);
 
-                if (index < 0) return Component.translatable("text.createjukeboxdisplay.not_playing");
+                if (index < 0) return Component.translatable("text.createnowplaying.not_playing");
 
                 ItemStack item = en.getItem(index);
                 if (item == null || item.is(Items.AIR)) {
 //                    Createnowplaying.log("Item not found at index " + index + " in album jukebox");
-                    return Component.translatable("text.createjukeboxdisplay.not_playing");
+                    return Component.translatable("text.createnowplaying.not_playing");
                 } else {
                     List<Component> lines = item.getTooltipLines(Item.TooltipContext.EMPTY, null, TooltipFlag.NORMAL).stream().filter(l -> !l.getString().trim().isEmpty()).toList();
 //                    Createnowplaying.log(lines.size() + " lines: " + lines.toString());
-                    if (lines.isEmpty()) return Component.translatable("text.createjukeboxdisplay.not_playing");
+                    if (lines.isEmpty()) return Component.translatable("text.createnowplaying.not_playing");
 
                     String content = (!lines.getFirst().getSiblings().isEmpty() && lines.getFirst().getSiblings().getFirst().getContents().toString().contains("item.minecraft.")) ? lines.getFirst().getSiblings().getFirst().getContents().toString().split("='")[1].split("',")[0].trim() : lines.get(1).getString();
 
-                    if (content.trim().isEmpty()) return Component.translatable("text.createjukeboxdisplay.not_playing");
+                    if (content.trim().isEmpty()) return Component.translatable("text.createnowplaying.not_playing");
 
                     if (content.startsWith("item.minecraft")) content = content + ".desc";
 
