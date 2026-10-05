@@ -24,6 +24,12 @@ public class ModDisplaySources {
     public static final DisplaySource ALBUM_JUKEBOX_NEXT_ARTIST = new AlbumJukeboxNextTrackArtistDisplaySource();
     public static final DisplaySource ALBUM_JUKEBOX_NEXT = new AlbumJukeboxNextTrackDisplaySource();
 
+    public static final DisplaySource ALBUM_JUKEBOX_PLAYING = new JukeboxPlayingDisplaySource();
+    public static final DisplaySource ALBUM_JUKEBOX_SONG_TITLE = new JukeboxTitleDisplaySource();
+    public static final DisplaySource ALBUM_JUKEBOX_ARTIST = new JukeboxArtistDisplaySource();
+    public static final DisplaySource ALBUM_JUKEBOX_SHORT_PLAYBACK_ELAPSED = new JukeboxPlaybackShortElapsedDisplaySource();
+    public static final DisplaySource ALBUM_JUKEBOX_LONG_PLAYBACK_ELAPSED = new JukeboxPlaybackLongElapsedDisplaySource();
+
     public static void register(RegisterEvent ev) {
         if(!ev.getRegistryKey().equals(CreateBuiltInRegistries.DISPLAY_SOURCE.key())) return;
 
@@ -40,11 +46,11 @@ public class ModDisplaySources {
             if(albumJukeboxBlock != null) {
                 Createnowplaying.log("etched:album_jukebox found, registering display sources");
 
-                registerDisplaySource(JUKEBOX_PLAYING, "jukebox_playing", albumJukeboxBlock);
-                registerDisplaySource(JUKEBOX_SONG_TITLE, "jukebox_title", albumJukeboxBlock);
-                registerDisplaySource(JUKEBOX_ARTIST, "jukebox_artist", albumJukeboxBlock);
-                registerDisplaySource(JUKEBOX_SHORT_PLAYBACK_ELAPSED, "jukebox_short_playback_elapsed", albumJukeboxBlock);
-                registerDisplaySource(JUKEBOX_LONG_PLAYBACK_ELAPSED, "jukebox_long_playback_elapsed", albumJukeboxBlock);
+                registerDisplaySource(ALBUM_JUKEBOX_PLAYING, "album_jukebox_playing", albumJukeboxBlock);
+                registerDisplaySource(ALBUM_JUKEBOX_SONG_TITLE, "album_jukebox_title", albumJukeboxBlock);
+                registerDisplaySource(ALBUM_JUKEBOX_ARTIST, "album_jukebox_artist", albumJukeboxBlock);
+                registerDisplaySource(ALBUM_JUKEBOX_SHORT_PLAYBACK_ELAPSED, "album_jukebox_short_playback_elapsed", albumJukeboxBlock);
+                registerDisplaySource(ALBUM_JUKEBOX_LONG_PLAYBACK_ELAPSED, "album_jukebox_long_playback_elapsed", albumJukeboxBlock);
 
                 // Etched-Specific Sources
                 registerDisplaySource(ALBUM_JUKEBOX_PROVIDER, "album_jukebox_provider", albumJukeboxBlock);
