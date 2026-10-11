@@ -43,7 +43,7 @@ public class JukeboxTitleDisplaySource extends SingleLineDisplaySource {
             if(jukebox.getSongPlayer().isPlaying() && jukebox.getSongPlayer().getSong() != null) {
                 String content = jukebox.getSongPlayer().getSong().description().getString();
                 String[] split = content.split(" - ");
-                if(split.length == 1) return Component.translatable("text.createnowplaying.no_title");
+                if(split.length < 2) return Component.empty();
                 String title = split[1];
                 if(title == null) return Component.translatable("text.createnowplaying.no_title");
 
