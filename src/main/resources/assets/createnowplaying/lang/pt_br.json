@@ -1,0 +1,17 @@
+{
+  "text.createnowplaying.not_playing": "Nada Tocando",
+  "text.createnowplaying.no_title": "Sem Título",
+  "text.createnowplaying.no_artist": "Sem Artista",
+  "text.createnowplaying.no_provider": "Sem Provedor",
+  "text.createnowplaying.providers.minecraft": "Minecraft",
+  "createnowplaying.display_source.jukebox_playing": "Música Atual",
+  "createnowplaying.display_source.jukebox_title": "Título da Música",
+  "createnowplaying.display_source.jukebox_short_playback_elapsed": "Tempo Decorrido Curto",
+  "createnowplaying.display_source.jukebox_long_playback_elapsed": "Tempo Decorrido Longo",
+  "createnowplaying.display_source.jukebox_redstone_power": "Sinal de Redstone",
+  "createnowplaying.display_source.jukebox_artist": "Nome do Artista",
+  "createnowplaying.display_source.album_jukebox_provider": "Provedor da Faixa",
+  "createnowplaying.display_source.album_jukebox_next": "Próxima Faixa do Álbum",
+  "createnowplaying.display_source.album_jukebox_next_title": "Próximo Título do Álbum",
+  "createnowplaying.display_source.album_jukebox_next_artist": "Próximo Artista do Álbum"
+}
