@@ -6,13 +6,15 @@ import com.simibubi.create.content.redstone.displayLink.target.DisplayTargetStat
 import gg.moonflower.etched.common.blockentity.AlbumJukeboxBlockEntity;
 import lol.duckyyy.createnowplaying.Createnowplaying;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.JukeboxBlockEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 

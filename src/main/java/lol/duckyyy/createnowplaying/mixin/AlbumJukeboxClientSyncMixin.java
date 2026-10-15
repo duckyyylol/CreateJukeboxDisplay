@@ -1,7 +1,6 @@
 package lol.duckyyy.createnowplaying.mixin;
 
 import gg.moonflower.etched.common.blockentity.AlbumJukeboxBlockEntity;
-import gg.moonflower.etched.common.network.play.SetAlbumJukeboxTrackPacket;
 import lol.duckyyy.createnowplaying.Createnowplaying;
 import lol.duckyyy.createnowplaying.network.TrackSyncPayload;
 import net.minecraft.world.level.Level;

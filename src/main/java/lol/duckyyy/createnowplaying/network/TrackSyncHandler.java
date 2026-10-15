@@ -5,8 +5,6 @@ import lol.duckyyy.createnowplaying.Createnowplaying;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-import java.lang.reflect.Method;
-
 public class TrackSyncHandler {
     public static void handle(final TrackSyncPayload data, final IPayloadContext context) {
         context.enqueueWork(() -> {

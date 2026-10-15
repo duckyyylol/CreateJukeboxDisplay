@@ -2,7 +2,6 @@ package lol.duckyyy.createnowplaying.event;
 
 import lol.duckyyy.createnowplaying.Createnowplaying;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 
