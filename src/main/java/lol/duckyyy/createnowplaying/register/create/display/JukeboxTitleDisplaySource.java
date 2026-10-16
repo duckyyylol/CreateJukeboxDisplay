@@ -5,6 +5,7 @@ import com.simibubi.create.content.redstone.displayLink.source.SingleLineDisplay
 import com.simibubi.create.content.redstone.displayLink.target.DisplayTargetStats;
 import gg.moonflower.etched.common.blockentity.AlbumJukeboxBlockEntity;
 import lol.duckyyy.createnowplaying.Createnowplaying;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.Item;
@@ -33,7 +34,10 @@ public class JukeboxTitleDisplaySource extends SingleLineDisplaySource {
                 if(jukebox.getTheItem().toString().contains("etched_music_disc")) {
                     ItemStack playingItem = jukebox.getTheItem();
                     String content = playingItem.getTooltipLines(Item.TooltipContext.EMPTY, null, TooltipFlag.NORMAL).get(1).getString();
-                    String[] split = content.split(" - ");
+                    String locale = Minecraft.getInstance().options.languageCode;
+                    String delim = Createnowplaying.getDeliminatorForLocale(locale);
+                    if(!content.contains(delim)) delim = Createnowplaying.getDeliminatorForLocale("default");
+                    String[] split = content.split(delim);
                     String title = split[1];
 
                     if(title != null) return Component.empty().append(title);
@@ -42,7 +46,10 @@ public class JukeboxTitleDisplaySource extends SingleLineDisplaySource {
 
             if(jukebox.getSongPlayer().isPlaying() && jukebox.getSongPlayer().getSong() != null) {
                 String content = jukebox.getSongPlayer().getSong().description().getString();
-                String[] split = content.split(" - ");
+                String locale = Minecraft.getInstance().options.languageCode;
+                String delim = Createnowplaying.getDeliminatorForLocale(locale);
+                if(!content.contains(delim)) delim = Createnowplaying.getDeliminatorForLocale("default");
+                String[] split = content.split(delim);
                 if(split.length < 2) return Component.empty();
                 String title = split[1];
                 if(title == null) return Component.translatable("text.createnowplaying.no_title");
@@ -77,7 +84,10 @@ public class JukeboxTitleDisplaySource extends SingleLineDisplaySource {
 
                     String componentContent = content.startsWith("item.minecraft") ? Component.translatable(content).getString() : content;
 
-                    String[] split = componentContent.split(" - ");
+                    String locale = Minecraft.getInstance().options.languageCode;
+                    String delim = Createnowplaying.getDeliminatorForLocale(locale);
+                    if(!content.contains(delim)) delim = Createnowplaying.getDeliminatorForLocale("default");
+                    String[] split = content.split(delim);
                     if(split.length < 2) return Component.translatable("text.createnowplaying.no_title");
                     String title = split[1].trim();
 

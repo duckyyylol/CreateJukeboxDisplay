@@ -4,6 +4,8 @@ import com.simibubi.create.content.redstone.displayLink.DisplayLinkContext;
 import com.simibubi.create.content.redstone.displayLink.source.SingleLineDisplaySource;
 import com.simibubi.create.content.redstone.displayLink.target.DisplayTargetStats;
 import gg.moonflower.etched.common.blockentity.AlbumJukeboxBlockEntity;
+import lol.duckyyy.createnowplaying.Createnowplaying;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.Item;
@@ -55,7 +57,10 @@ public class AlbumJukeboxNextTrackTitleDisplaySource extends SingleLineDisplaySo
 
                 String componentContent = content.startsWith("item.minecraft") ? Component.translatable(content).getString() : content;
 
-                String[] split = componentContent.split(" - ");
+                String locale = Minecraft.getInstance().options.languageCode;
+                String delim = Createnowplaying.getDeliminatorForLocale(locale);
+                if(!content.contains(delim)) delim = Createnowplaying.getDeliminatorForLocale("default");
+                String[] split = componentContent.split(delim);
                 if(split.length < 2) return Component.empty();
                 String title = split[1].trim();
 

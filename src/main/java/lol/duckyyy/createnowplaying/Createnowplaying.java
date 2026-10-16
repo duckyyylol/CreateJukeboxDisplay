@@ -9,6 +9,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
 import java.util.HashMap;
@@ -40,6 +41,14 @@ public class Createnowplaying {
 
     public static ResourceLocation asResource(String path) {
         return ResourceLocation.fromNamespaceAndPath(MODID, path);
+    }
+
+    public static String getDeliminatorForLocale(@Nullable String locale) {
+        Map<String, String> delims = new HashMap<>();
+        delims.put("default", " - ");
+        delims.put("pt_br", " — ");
+
+        return delims.getOrDefault(locale, delims.get("default"));
     }
 
 //    @SubscribeEvent
