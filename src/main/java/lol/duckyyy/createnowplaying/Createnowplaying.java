@@ -12,7 +12,9 @@ import net.neoforged.neoforge.common.NeoForge;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Mod(Createnowplaying.MODID)
@@ -46,7 +48,42 @@ public class Createnowplaying {
     public static String getDeliminatorForLocale(@Nullable String locale) {
         Map<String, String> delims = new HashMap<>();
         delims.put("default", " - ");
-        delims.put("pt_br", " — ");
+        List<String> emDashLocales = new ArrayList<>(List.of(
+                "ba_ru",
+                "be_by",
+                "be_latn",
+                "cv_cu",
+                "eo_uy",
+                "hal_ua",
+                "it_it",
+                "ka_ge",
+                "kk_kz",
+                "pl_pl",
+                "pt_br",
+                "pt_pt",
+                "ro_ro",
+                "rpr",
+                "ru_ru",
+                "sah_sah",
+                "szl",
+                "tt_ru",
+                "uk_ua",
+                "uz_uz"));
+        List<String> enDashLocales = new ArrayList<>(List.of(
+                "hn_no",
+                "hr_hr",
+                "hu_hu",
+                "no_no",
+                "sv_se"));
+
+        for(String l : emDashLocales) {
+            delims.put(l, " — ");
+        }
+        for(String l : enDashLocales) {
+            delims.put(l, " – ");
+        }
+
+        delims.put("fi_fi", " –  ");
 
         return delims.getOrDefault(locale, delims.get("default"));
     }
