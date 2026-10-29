@@ -27,32 +27,34 @@ public class JukeboxTitleDisplaySource extends SingleLineDisplaySource {
     protected MutableComponent provideLine(DisplayLinkContext context, DisplayTargetStats stats) {
         BlockEntity entity = context.level().getBlockEntity(context.getSourcePos());
 
-        if(entity instanceof JukeboxBlockEntity jukebox) {
+        if (entity instanceof JukeboxBlockEntity jukebox) {
             // "Etched" Mod Compat
-            if(Createnowplaying.etched) {
+            if (Createnowplaying.etched) {
                 Createnowplaying.log("Etched is loaded");
-                if(jukebox.getTheItem().toString().contains("etched_music_disc")) {
+                if (jukebox.getTheItem().toString().contains("etched_music_disc")) {
                     ItemStack playingItem = jukebox.getTheItem();
                     String content = playingItem.getTooltipLines(Item.TooltipContext.EMPTY, null, TooltipFlag.NORMAL).get(1).getString();
                     String locale = Minecraft.getInstance().options.languageCode;
                     String delim = Createnowplaying.getDeliminatorForLocale(locale);
-                    if(!content.contains(delim)) delim = Createnowplaying.getDeliminatorForLocale("default");
+                    if (!content.contains(delim)) delim = Createnowplaying.getDeliminatorForLocale("default");
                     String[] split = content.split(delim);
                     String title = split[1];
 
-                    if(title != null) return Component.empty().append(title);
+                    if (title != null) {
+                        return Component.empty().append(title);
+                    }
                 }
             }
 
-            if(jukebox.getSongPlayer().isPlaying() && jukebox.getSongPlayer().getSong() != null) {
+            if (jukebox.getSongPlayer().isPlaying() && jukebox.getSongPlayer().getSong() != null) {
                 String content = jukebox.getSongPlayer().getSong().description().getString();
                 String locale = Minecraft.getInstance().options.languageCode;
                 String delim = Createnowplaying.getDeliminatorForLocale(locale);
-                if(!content.contains(delim)) delim = Createnowplaying.getDeliminatorForLocale("default");
+                if (!content.contains(delim)) delim = Createnowplaying.getDeliminatorForLocale("default");
                 String[] split = content.split(delim);
-                if(split.length < 2) return Component.empty();
+                if (split.length < 2) return Component.empty();
                 String title = split[1];
-                if(title == null) return Component.translatable("text.createnowplaying.no_title");
+                if (title == null) return Component.translatable("text.createnowplaying.no_title");
 
                 return Component.empty().append(title);
             } else {
@@ -86,9 +88,9 @@ public class JukeboxTitleDisplaySource extends SingleLineDisplaySource {
 
                     String locale = Minecraft.getInstance().options.languageCode;
                     String delim = Createnowplaying.getDeliminatorForLocale(locale);
-                    if(!content.contains(delim)) delim = Createnowplaying.getDeliminatorForLocale("default");
+                    if (!content.contains(delim)) delim = Createnowplaying.getDeliminatorForLocale("default");
                     String[] split = content.split(delim);
-                    if(split.length < 2) return Component.translatable("text.createnowplaying.no_title");
+                    if (split.length < 2) return Component.translatable("text.createnowplaying.no_title");
                     String title = split[1].trim();
 
                     return Component.empty().append(title);
@@ -98,7 +100,6 @@ public class JukeboxTitleDisplaySource extends SingleLineDisplaySource {
 
         return Component.empty();
     }
-
 
 
     @Override

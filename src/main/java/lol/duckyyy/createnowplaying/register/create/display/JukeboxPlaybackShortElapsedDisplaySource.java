@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.entity.JukeboxBlockEntity;
 import java.util.concurrent.TimeUnit;
 
 public class JukeboxPlaybackShortElapsedDisplaySource extends SingleLineDisplaySource {
-    private MutableComponent formatTime(long minutes, long seconds) {
+    public static MutableComponent formatTime(long minutes, long seconds) {
         return Component.literal(String.format("%s:%s", minutes >= 10 ? minutes : String.format("0%s", minutes),seconds >= 10 ? seconds : String.format("0%s", seconds)));
     }
 
@@ -30,6 +30,8 @@ public class JukeboxPlaybackShortElapsedDisplaySource extends SingleLineDisplayS
         if(entity instanceof JukeboxBlockEntity jukebox) {
             if(jukebox.isEmpty() || jukebox.getTheItem().is(Items.AIR)) {
                 Createnowplaying.ElapsedMap.remove(jukebox.getBlockPos());
+                Createnowplaying.DisplayLinkElapsedBoundBlocks.remove(jukebox.getBlockPos());
+
                 return formatTime(0, 0);
             }
 
@@ -45,7 +47,10 @@ public class JukeboxPlaybackShortElapsedDisplaySource extends SingleLineDisplayS
             if(playing) {
                 long elapsedMinutes = 0L;
                 long elapsedSeconds = 0L;
-                if(!Createnowplaying.ElapsedMap.containsKey(jukebox.getBlockPos())) Createnowplaying.ElapsedMap.put(jukebox.getBlockPos(), 0L);
+                if(!Createnowplaying.ElapsedMap.containsKey(jukebox.getBlockPos())) {
+                    Createnowplaying.ElapsedMap.put(jukebox.getBlockPos(), 0L);
+                    Createnowplaying.DisplayLinkElapsedBoundBlocks.add(jukebox.getBlockPos());
+                }
 
                 elapsedSeconds = TimeUnit.SECONDS.toSeconds(Createnowplaying.ElapsedMap.get(jukebox.getBlockPos()));
                 elapsedMinutes = TimeUnit.SECONDS.toMinutes(Createnowplaying.ElapsedMap.get(jukebox.getBlockPos()));
@@ -55,6 +60,8 @@ public class JukeboxPlaybackShortElapsedDisplaySource extends SingleLineDisplayS
                 return formatTime(elapsedMinutes, elapsedSeconds);
             } else {
                 Createnowplaying.ElapsedMap.remove(jukebox.getBlockPos());
+                Createnowplaying.DisplayLinkElapsedBoundBlocks.remove(jukebox.getBlockPos());
+
                 return formatTime(0, 0);
             }
         }else if(Createnowplaying.etched) {
@@ -62,12 +69,18 @@ public class JukeboxPlaybackShortElapsedDisplaySource extends SingleLineDisplayS
             if(entity instanceof AlbumJukeboxBlockEntity jukebox) {
                 if(!jukebox.isPlaying()) {
                     Createnowplaying.ElapsedMap.remove(jukebox.getBlockPos());
+                    Createnowplaying.DisplayLinkElapsedBoundBlocks.remove(jukebox.getBlockPos());
+
                     return formatTime(0, 0);
                 }
 
                 long elapsedMinutes = 0L;
                 long elapsedSeconds = 0L;
-                if(!Createnowplaying.ElapsedMap.containsKey(jukebox.getBlockPos())) Createnowplaying.ElapsedMap.put(jukebox.getBlockPos(), 0L);
+                if(!Createnowplaying.ElapsedMap.containsKey(jukebox.getBlockPos())) {
+                    Createnowplaying.ElapsedMap.put(jukebox.getBlockPos(), 0L);
+                    Createnowplaying.DisplayLinkElapsedBoundBlocks.add(jukebox.getBlockPos());
+
+                }
 
                 elapsedSeconds = TimeUnit.SECONDS.toSeconds(Createnowplaying.ElapsedMap.get(jukebox.getBlockPos()));
                 elapsedMinutes = TimeUnit.SECONDS.toMinutes(Createnowplaying.ElapsedMap.get(jukebox.getBlockPos()));
