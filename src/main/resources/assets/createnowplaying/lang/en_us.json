@@ -13,5 +13,8 @@
   "createnowplaying.display_source.album_jukebox_provider": "Track Provider",
   "createnowplaying.display_source.album_jukebox_next": "Next Track in Album",
   "createnowplaying.display_source.album_jukebox_next_title": "Next Title in Album",
-  "createnowplaying.display_source.album_jukebox_next_artist": "Next Artist in Album"
+  "createnowplaying.display_source.album_jukebox_next_artist": "Next Artist in Album",
+  "createnowplaying.config.goggles.album_jukebox_show_next": "[Etched] Show Next Track",
+  "createnowplaying.config.goggles.show_time_elapsed": "Show Playback Time Elapsed",
+  "createnowplaying.config.goggles.display_style": "Tooltip Display Style"
 }

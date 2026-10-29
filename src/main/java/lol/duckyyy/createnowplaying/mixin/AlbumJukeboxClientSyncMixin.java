@@ -17,8 +17,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value = AlbumJukeboxBlockEntity.class, remap = false)
 public abstract class AlbumJukeboxClientSyncMixin {
 
-    @Shadow public abstract int getPlayingIndex();
-    @Shadow public abstract int getTrack();
+    @Shadow
+    public abstract int getPlayingIndex();
+
+    @Shadow
+    public abstract int getTrack();
 
     @Inject(method = "next", at = @At("TAIL"))
     private void createnowplaying$syncNextToServer(CallbackInfo ci) {

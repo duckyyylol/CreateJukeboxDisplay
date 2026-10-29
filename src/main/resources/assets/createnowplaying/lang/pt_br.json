@@ -13,5 +13,8 @@
   "createnowplaying.display_source.album_jukebox_provider": "Provedor da Faixa",
   "createnowplaying.display_source.album_jukebox_next": "Próxima Faixa do Álbum",
   "createnowplaying.display_source.album_jukebox_next_title": "Próximo Título do Álbum",
-  "createnowplaying.display_source.album_jukebox_next_artist": "Próximo Artista do Álbum"
+  "createnowplaying.display_source.album_jukebox_next_artist": "Próximo Artista do Álbum",
+  "createnowplaying.config.goggles.album_jukebox_show_next": "[Etched] Próxima Faixa",
+  "createnowplaying.config.goggles.show_time_elapsed": "Tempo decorrido do programa",
+  "createnowplaying.config.goggles.display_style": "Estilo tooltip"
 }

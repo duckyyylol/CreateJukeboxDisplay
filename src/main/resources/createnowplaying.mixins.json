@@ -5,7 +5,9 @@
   "plugin": "lol.duckyyy.createnowplaying.mixin.ConfigurableMixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "AlbumJukeboxClientSyncMixin"
+    "AlbumJukeboxClientSyncMixin",
+    "AlbumJukeboxGoggleSourceMixin",
+    "JukeboxGoggleSourceMixin"
   ],
   "injectors": {
     "defaultRequire": 1

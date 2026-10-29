@@ -22,6 +22,8 @@ public class ConfigurableMixin implements IMixinConfigPlugin {
     public boolean shouldApplyMixin(String target, String mixin) {
         if(mixin.equalsIgnoreCase(String.format("lol.duckyyy.%s.mixin.AlbumJukeboxClientSyncMixin", Createnowplaying.MODID))) {
             return FMLLoader.getLoadingModList().getModFileById("etched") != null;
+        } else if(mixin.equalsIgnoreCase(String.format("lol.duckyyy.%s.mixin.AlbumJukeboxGoggleSourceMixin", Createnowplaying.MODID))) {
+            return FMLLoader.getLoadingModList().getModFileById("etched") != null;
         }
 
         return true;
